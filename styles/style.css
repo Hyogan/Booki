@@ -4,6 +4,13 @@
   list-style-type: none;
   text-decoration: none;
   box-sizing: border-box;
+  animation: apearing_anim .4s linear;
+  scroll-behavior: smooth;
+}
+
+@keyframes apearing_anim {
+  0% {opacity: 0;}
+  100%{opacity: 100%;}
 }
 
 
@@ -51,7 +58,7 @@ header nav a {
 }
 
 
-header nav a[href^='#'].active {
+header nav a.active {
   border-top: 2px solid var(--primary-color);
   color: var(--primary-color);  
 }
@@ -88,9 +95,12 @@ main {
   gap: 15px;
 }
 
+.search-block h2 {
+  font-weight: bolder;
+}
 .search-block h3 {
-  color: #a1a1a1;
-  font-size: 16px;
+  color: #313131;
+  font-size: 15px;
 }
 
 .search-block form {
@@ -138,14 +148,16 @@ main {
   border: none;
   height: 100%;
   color: white;
+  font-weight: bold;
 }
 
-@media screen and (max-width : 710px) {
-  .search-block form button::button {
+@media screen and (max-width : 703px) {
+  .search-block form button::after {
     content: "\f002";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 5px;
+    font-size: 17px;
   }
 
   .search-block form button span {
@@ -239,10 +251,8 @@ main .stars {
 }
 .main-popular-places {
   display: flex;
-  /* flex-direction: co; */
   width: 100%;
   justify-content: space-between;
-  /* padding: 10px 15px; */
   gap: 30px;
 }
 
@@ -250,13 +260,19 @@ section.main-places {
   /* font-weight: 600; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: start;
   gap: 10px;
   background: var(--background-color);
   border-radius: 15px;
   padding: 25px;
   width: 100%;
+}
+
+section.main-places p.section-title {
+  font-weight: bolder;
+  font-size: 18px;
+  /* color: red; */
 }
 section.main-places .section-content {
   display: flex;
@@ -287,7 +303,7 @@ section.main-popular-places .section-content .place-item .items-infos {
 
 section.main-places .section-content .place-item img{
   width: 100%;
-  height: 140px;
+  height: 120px;
   border-start-start-radius: 15px;
   border-start-end-radius: 15px;
 }
@@ -295,6 +311,7 @@ section.main-places .section-content .place-item img{
 section.main-places .section-content .place-item .place-title {
   font-weight: bolder;
   color: black;
+  font-size: 16px;
 }
 section.main-places .section-content .place-item h4{
   color: #3d3d3d;
@@ -342,7 +359,6 @@ aside.popular-places {
     gap: 25px;
     background: var(--background-color);
     border-radius: 15px;
-    /* width: 100%; */
     max-width: 50%;
     padding: 20px;
  }
@@ -355,6 +371,15 @@ aside.popular-places .block-intro {
   padding: 10px;
 }
 
+aside.popular-places .section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 25px;
+  background: var(--background-color);
+  border-radius: 15px;
+}
+
 
 aside.popular-places  .popular-place-item {
   display: flex;
@@ -364,6 +389,7 @@ aside.popular-places  .popular-place-item {
   border-radius: 15px;
   padding: 5px;
   min-height: 125px;
+  max-height: 130px;
   gap: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -386,10 +412,12 @@ aside.popular-places  .popular-place-item h4{
 aside.popular-places .popular-place-item h4 span {
   color: black;
 }
+aside.popular-places .popular-place-item .items-infos {margin-bottom: 5px;}
 aside.popular-places .popular-place-item .items-infos .stars {
   font-size: 12px;
   margin-top: 20%;
 }
+
 
      /* 
               ACTIVITIES BLOCK
@@ -404,7 +432,11 @@ aside.popular-places .popular-place-item .items-infos .stars {
   margin-block: 25px;
   min-height: 400px;
 }
-
+.activities-section h3 {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 10px;
+}
 .activities-section .section-content {
   display: flex;
   justify-content: center;
@@ -427,7 +459,7 @@ aside.popular-places .popular-place-item .items-infos .stars {
 .activities-section .section-content article img {
   border-start-start-radius: 25px;
   border-start-end-radius: 25px;
-  width: 100%
+  width: 100%;
 }
 
 .activities-section .section-content .activity-item,
@@ -435,7 +467,10 @@ aside.popular-places .popular-place-item .items-infos .stars {
   width: 25%;
   max-height: 100%;
 }
-
+.activities-section .section-content .activity-item img ,
+ .activities-section .section-content .fused-activities .fused-activity-item img {
+  object-fit:cover;
+}
 .activities-section .section-content .activity-item,
 .activities-section .section-content .fused-activity-item {
   border-radius: 25px;
@@ -490,6 +525,11 @@ footer {
   gap: 20%;
   color: black;
 }
+@media screen and (max-width : 730px) {
+  footer {
+    gap: 25px;
+  }
+}
 
 footer ul h5 {
   font-weight: bold;
@@ -510,98 +550,210 @@ footer ul li a:hover {
   color: var(--primary-color);
 }
 
-@media screen and (max-width : 924px) {
   
-  .activities-section .section-content {
+/* 
+
+.activities-section .section-content .fused-activities{
+  min-width: 80%;
+}
+.activities-section .section-content article
+{
+  min-width: 80%;
+  height: fit-content;
+  min-height: 300px;
+}
+.activities-section .section-content article img
+{
+  min-height: 100%;
+} 
+.activities-section .section-content .fused-activities {
+  height: fit-content;
+} */
+
+@media  screen and (min-width : 1020px) {.activities-section .section-content-mobile {display: none;}}
+@media  screen and (max-width : 1020px) {
+  .activities-section .section-content {display: none;}
+
+  .activities-section .section-content-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    padding: 10px;
     flex-wrap: wrap;
   }
 
-  .activities-section .section-content .fused-activities{
-    min-width: 80%;
+  .activities-section .section-content-mobile article {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 25%;
+    max-height: 100%;
+    border-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: .5s;
+    min-width: 260px;
   }
-  .activities-section .section-content article
-  {
-    min-width: 80%;
-    height: fit-content;
-    min-height: 300px;
+
+  .activities-section .section-content-mobile article img {
+    border-start-start-radius: 25px;
+    border-start-end-radius: 25px;
+    width: 100%;
   }
-  .activities-section .section-content article img
-  {
-    min-height: 100%;
-  } 
-  .activities-section .section-content .fused-activities {
-    height: fit-content;
+
+  .activities-section .section-content-mobile article p{
+    padding: 15px;
+    font-weight: bolder;
+    color: black;
+  }
+
+  .activities-section .section-content-mobile article:hover {
+    transform: scale(1.04);
+  }
+
+  .activities-section .section-content-mobile .activity-item img {
+    height: 400px;
+    object-fit:cover;
   }
 }
 
-@media screen and (max-width : 730px) {
+@media screen and (max-width : 924px) {
+
+  .filtering-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filtering-block .taglist {
+    justify-content: start;
+  }
+
+}
+
+
+        /*
+                    CHECK POINT 1094PX
+        
+        */
+@media screen and (max-width : 1094px) {
   .main-popular-places {
     flex-direction: column-reverse;
-    align-items: center;
-    width: 100%;
+  } 
+
+  .main-popular-places aside.popular-places {width: 100%; max-width: 100%;}
+  aside.popular-places .section-content{
+      flex-direction: row;
+      flex-wrap: wrap;
   }
+  /* .popular-place-item {} */
+
+  .main-popular-places .popular-places .popular-place-item {
+    max-height: unset;
+    align-items: center;
+    justify-content: start;
+    max-height: 125px;
+    width: fit-content;
+  }
+  .main-popular-places .popular-places .popular-place-item .items-infos {
+    justify-content: start;
+    align-items: flex-start;
+  }
+}
+  /* CHECKPOINT 730PX */
+@media screen and (max-width : 730px) {
+  
   main {
     padding: 0;
   }
-  .main-popular-places .popular-places {
-    flex-direction: row;
-    flex-wrap: wrap;
+  header{
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 100%;
-    align-items: center;
   }
-  .main-popular-places .popular-places .popular-place-item {
-    align-items: center;
-    justify-content: start;
+  header nav {
+    width: 100%;
+    height: 60px;
   }
+  header nav a{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid rgb(211, 211, 211);
+  }
+  header nav a.active {
+    border-top: none;
+    border-bottom: 3px solid blue;
+  }
+
+    /* MOBILE SEARCH BLOCK */
+  .search-block {
+    padding: 20px;
+    justify-content: center;
+  }
+  .search-block form { max-width: 80%; margin: 20px 0; }
+  .search-block form input,  .search-block form button  {  padding: 10px; max-width: 90%; }
+
+  /* MOBILE  MAIN PLACES */
+
+  .main-popular-places .main-places {
+    border-radius: 0;
+    padding: 25px 0;
+  }
+
+
+  .main-popular-places .main-places .section-title,
+  .main-popular-places .main-places .show-more {
+    margin-left: 25px;
+  }
+  .main-popular-places .main-places .section-content {
+    padding: 20px 10%;
+    width: 100%;
+  }
+  .main-popular-places .main-places .section-content .place-item {
+    width: 100%;
+    height: fit-content;
+  }
+
+  section.main-popular-places aside.popular-places{border-radius: 0;}
+
+section.main-places .section-content .place-item img{
+  width: fit-content;
+  height: 180px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+    /* MOBILE MOST POPULAR PLACES */
+
   .main-popular-places .popular-places .popular-place-item .items-infos {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     height: 100%;
     /* background: red; */
-
+  }    
+  .main-popular-places .popular-places .popular-place-item {
+    width: 100%;
   }
+
+
   .main-popular-places .popular-places .popular-place-item .items-infos .stars {
     margin: 0;
   }
   
-  .main-popular-places .main-places {
-    background: white;
-    width: 100%;
+  .activities-section .section-content-mobile .activity-item img {
+    height: 200px;
+    object-fit:cover;
   }
-  .main-popular-places .main-places .section-content {
-    width: 100%;
-    padding: 0;
+  .activities-section .section-content-mobile article {
+    min-width: 90%;
   }
-  .main-popular-places .main-places .place-item {
-    width: 100%;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin: 0;
-  }
-
-
 }
 
-
-
-@media screen and (max-width : 710px){
-  header {
-    flex-direction: column;
-  } 
-  header nav {
-    width: 100%;
-  } 
-  section.search-section {
-    padding: 10px;
-  }
-  .filtering-block { 
-    flex-wrap: wrap; 
-    justify-content: center;
-  }
-  .main-popular-places .popular-places  {
-    width: 100%;
-  }
-
-}
