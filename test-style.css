@@ -288,49 +288,21 @@ section.main-places {
   gap: 10px;
   background: var(--background-color);
   border-radius: 15px;
-  padding: 20px;
-  padding-left: 45px;
-  width: fit-content;
+  padding: 27px;
+  width: 100%;
 }
 
-section.main-places p.section-title,
-section.main-places button.show-more {
+section.main-places p.section-title {
   font-weight: bolder;
   font-size: 18px;
-  /* background: rebeccapurple; */
-  border: none;
-  width: 100%;
-  padding: 10px 0 10px calc(4%) ;
+  /* color: red; */
 }
-section.main-places button.show-more {
-  font-weight: 500;
-  text-align: start;
-  background: none;
-  transition: .6s;
-}
-section.main-places button.show-more:hover {
-  border-bottom: 2px solid var(--primary-color);
-  cursor: pointer;
-  width: fit-content;
-  /* font-weight: 600; */
-}
-/* @media screen and (max-width : 1840px)  and (min-width : 1575px){
-  section.main-places p.section-title,
-  section.main-places button.show-more {
-    padding: 10px 0 10px calc(5%) ;
-  }
-} */
-@media screen and (min-width : 1650px) and (max-width : 1800px){ section.main-places p.section-title, section.main-places button.show-more {padding: 10px 0 10px calc(7%) ;}}
-@media screen and (min-width : 1800px) { section.main-places p.section-title, section.main-places button.show-more {padding: 10px 0 10px calc(12%) ;}}
-
 section.main-places .section-content {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 0;
+  justify-content: start;
+  align-items: start;
+  gap: 15px;
 }
 
 
@@ -345,31 +317,18 @@ section.main-places .section-content .place-item {
   padding: 5px;
   gap: 10px;
   position: relative;
-  max-width: 300px;
 }
-
-@media screen and (min-width : 1300px) {
-  section.main-places .section-content .place-item {
-    width: 30%;
-  }
-}
-
-/* @media screen and (min-width : the ) {
-  section.main-places .section-content .place-item {
-    width: 30%;
-  }
-} */
-
 
 section.main-places .section-content .place-item .booking-block {
   /* content: 'Book Now'; */
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1;
+  left: 1;
   background: rgba(0, 0, 0, 0.548);
-  height: 100%;
-  width: 100%;
-  border-radius: 15px;
+  height: 57%;
+  width: 96%;
+  border-start-start-radius: 15px;
+  border-start-end-radius: 15px;
   transition: .6s;
   display: flex;
   justify-content: center;
@@ -429,6 +388,29 @@ section.main-places .section-content .place-item h4 span {
   color: black;
 }
 
+section.main-places .show-more{
+  border: none;
+  background: none;
+  display: block;
+  font-weight: bolder;
+  font-size: 15px;
+  position: relative;
+}
+
+section.main-places .show-more::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  background: blue;
+  position: absolute;
+  transition: .6s;
+  top: 100%;
+  left: 0;
+}
+
+section.main-places .show-more:hover::after {
+  width: 100%;
+}
 
 
 /*
@@ -482,16 +464,10 @@ aside.popular-places  .popular-place-item {
 
 aside.popular-places .popular-place-item img{
   width: 140px;
-  /* height: 100%; */
+  height: 100%;
   border-start-start-radius: 15px;
   border-end-start-radius: 15px;
 }
-@media screen and (max-width : 1200px) {
-  aside.popular-places .popular-place-item img {
-    height: 100%;
-  }
-}
-
 aside.popular-places .popular-place-item .place-title {
   font-size: 15px;
   font-weight: bolder;
@@ -570,8 +546,8 @@ aside.popular-places .popular-place-item .items-infos .stars {
   box-shadow: rgba(50, 50, 93, 0.076) 0px 13px 27px -5px, rgba(0, 0, 0, 0.062) 0px 1px 16px -8px;
 }
 
-.activities-section .section-content .activity-item h4,
-.activities-section .section-content .fused-activity-item h4{
+.activities-section .section-content .activity-item p,
+.activities-section .section-content .fused-activity-item p{
   padding: 15px;
   font-weight: bolder;
   color: black;
@@ -617,19 +593,16 @@ footer {
   justify-content: flex-start;
   align-items: center;
   padding: 50px 30px;
-  gap: 18%;
+  gap: 20%;
   color: black;
 }
-
-@media screen and (max-width : 500px) {
+@media screen and (max-width : 730px) {
   footer {
-   flex-direction: column;
-   justify-content: center;
-   align-items: start;
+    gap: 25px;
   }
 }
 
-footer ul .links-title {
+footer ul h5 {
   font-weight: bold;
   font-size: 17px;
   margin-bottom: 15px;
@@ -640,7 +613,7 @@ footer ul li {
 }
 footer ul li a {
   color: black;
-  transition: .6s;
+  transition: .6;
 }
 
 
@@ -710,14 +683,13 @@ footer ul li a:hover {
   .filtering-block .taglist {
     justify-content: start;
   }
-
-  .main-places .section-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    /* background: red; */
+  @media screen and (max-width : 930px) and (min-width : 920px) {
+    .popular-place-item {
+      background: red;
+    }
   }
+
+
 
 }
 
@@ -730,7 +702,6 @@ footer ul li a:hover {
   .main-popular-places {
     flex-direction: column-reverse;
   } 
-  
 
   .main-popular-places aside.popular-places {width: 100%; max-width: 100%;}
   aside.popular-places .section-content{
@@ -751,13 +722,7 @@ footer ul li a:hover {
     justify-content: start;
     align-items: flex-start;
   }
-  .main-popular-places .main-places {
-    width: 100%;
-    /* background: red; */
-  }
-
 }
-
   /* CHECKPOINT 730PX */
 @media screen and (max-width : 730px) {
   
@@ -809,10 +774,8 @@ footer ul li a:hover {
     margin-left: 25px;
   }
   .main-popular-places .main-places .section-content {
-    padding: 20px 5%;
+    padding: 20px 10%;
     width: 100%;
-    justify-content: center;
-    /* background: red; */
   }
   .main-popular-places .main-places .section-content .place-item {
     width: 100%;
@@ -825,7 +788,9 @@ footer ul li a:hover {
 
  
 section.main-places .section-content .place-item img{
+  width: fit-content;
   height: 180px;
+  max-width: 100%;
   object-fit: cover;
 }
 
@@ -839,6 +804,7 @@ section.main-places .section-content .place-item img{
     align-items: start;
     justify-content: center;
     height: 100%;
+    /* background: red; */
   }    
   .main-popular-places .popular-places .popular-place-item {
     width: 100%;
@@ -852,7 +818,11 @@ section.main-places .section-content .place-item img{
     height: 180px;
     object-fit:cover;
   }
-
+  section.main-places .section-content .place-item .booking-block {
+    height: 66%;
+    width: 97%;
+    /* background: red; */
+  }
   .activities-section .section-content-mobile article {
     min-width: 90%;
   }
